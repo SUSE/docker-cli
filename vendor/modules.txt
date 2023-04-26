@@ -9,7 +9,7 @@ github.com/Microsoft/go-winio/pkg/guid
 # github.com/beorn7/perks v1.0.1
 ## explicit; go 1.11
 github.com/beorn7/perks/quantile
-# github.com/cespare/xxhash/v2 v2.1.2
+# github.com/cespare/xxhash/v2 v2.2.0
 ## explicit; go 1.11
 github.com/cespare/xxhash/v2
 # github.com/containerd/containerd v1.6.21
@@ -18,9 +18,17 @@ github.com/containerd/containerd/errdefs
 github.com/containerd/containerd/log
 github.com/containerd/containerd/pkg/userns
 github.com/containerd/containerd/platforms
+# github.com/cpuguy83/go-md2man/v2 v2.0.3
+## explicit; go 1.11
+github.com/cpuguy83/go-md2man/v2
+github.com/cpuguy83/go-md2man/v2/md2man
 # github.com/creack/pty v1.1.18
 ## explicit; go 1.13
 github.com/creack/pty
+# github.com/docker/cli-docs-tool v0.6.0
+## explicit; go 1.18
+github.com/docker/cli-docs-tool
+github.com/docker/cli-docs-tool/annotation
 # github.com/docker/distribution v2.8.2+incompatible
 ## explicit
 github.com/docker/distribution
@@ -224,12 +232,16 @@ github.com/prometheus/procfs/internal/util
 # github.com/rivo/uniseg v0.2.0
 ## explicit; go 1.12
 github.com/rivo/uniseg
+# github.com/russross/blackfriday/v2 v2.1.0
+## explicit
+github.com/russross/blackfriday/v2
 # github.com/sirupsen/logrus v1.9.3
 ## explicit; go 1.13
 github.com/sirupsen/logrus
 # github.com/spf13/cobra v1.7.0
 ## explicit; go 1.15
 github.com/spf13/cobra
+github.com/spf13/cobra/doc
 # github.com/spf13/pflag v1.0.5
 ## explicit; go 1.12
 github.com/spf13/pflag
@@ -300,10 +312,10 @@ golang.org/x/text/width
 # golang.org/x/time v0.3.0
 ## explicit
 golang.org/x/time/rate
-# google.golang.org/genproto v0.0.0-20220706185917-7780775163c4
-## explicit; go 1.15
+# google.golang.org/genproto v0.0.0-20230306155012-7f2fa6fef1f4
+## explicit; go 1.19
 google.golang.org/genproto/googleapis/rpc/status
-# google.golang.org/grpc v1.50.1
+# google.golang.org/grpc v1.53.0
 ## explicit; go 1.17
 google.golang.org/grpc
 google.golang.org/grpc/attributes
@@ -353,7 +365,7 @@ google.golang.org/grpc/serviceconfig
 google.golang.org/grpc/stats
 google.golang.org/grpc/status
 google.golang.org/grpc/tap
-# google.golang.org/protobuf v1.28.1
+# google.golang.org/protobuf v1.30.0
 ## explicit; go 1.11
 google.golang.org/protobuf/encoding/protojson
 google.golang.org/protobuf/encoding/prototext
@@ -390,6 +402,9 @@ google.golang.org/protobuf/types/known/timestamppb
 # gopkg.in/yaml.v2 v2.4.0
 ## explicit; go 1.15
 gopkg.in/yaml.v2
+# gopkg.in/yaml.v3 v3.0.1
+## explicit
+gopkg.in/yaml.v3
 # gotest.tools/v3 v3.5.0
 ## explicit; go 1.17
 gotest.tools/v3/assert
