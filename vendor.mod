@@ -11,6 +11,7 @@ require (
 	github.com/containerd/containerd v1.7.14
 	github.com/creack/pty v1.1.21
 	github.com/distribution/reference v0.5.0
+	github.com/docker/cli-docs-tool v0.6.0
 	github.com/docker/distribution v2.8.3+incompatible
 	github.com/docker/docker v26.0.1-0.20240410125953-60b9add796ae+incompatible
 	github.com/docker/docker-credential-helpers v0.8.1
@@ -47,6 +48,8 @@ require (
 	tags.cncf.io/container-device-interface v0.6.2
 )
 
+require github.com/cpuguy83/go-md2man/v2 v2.0.3
+
 require (
 	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect
 	github.com/Microsoft/go-winio v0.6.1 // indirect
@@ -74,6 +77,7 @@ require (
 	github.com/prometheus/common v0.44.0 // indirect
 	github.com/prometheus/procfs v0.12.0 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
+	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20190905194746-02993c407bfb // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	go.etcd.io/etcd/raft/v3 v3.5.6 // indirect
@@ -88,4 +92,5 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20231016165738-49dd2c1f3d0b // indirect
 	google.golang.org/grpc v1.59.0 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
