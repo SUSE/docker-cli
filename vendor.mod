@@ -9,6 +9,7 @@ go 1.22.0
 require (
 	dario.cat/mergo v1.0.1
 	github.com/containerd/platforms v0.2.1
+	github.com/cpuguy83/go-md2man/v2 v2.0.4
 	github.com/creack/pty v1.1.21
 	github.com/distribution/reference v0.6.0
 	github.com/docker/cli-docs-tool v0.8.0
@@ -87,6 +88,7 @@ require (
 	github.com/prometheus/common v0.44.0 // indirect
 	github.com/prometheus/procfs v0.15.1 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
+	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/stretchr/testify v1.9.0 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20190905194746-02993c407bfb // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
@@ -102,4 +104,5 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240604185151-ef581f913117 // indirect
 	google.golang.org/grpc v1.66.3 // indirect
 	google.golang.org/protobuf v1.35.1 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
