@@ -20,29 +20,19 @@ import (
 const (
 	builderDefaultPlugin = "buildx"
 	buildxMissingWarning = `DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
-            Install the docker-buildx package to build images with BuildKit:
+            Install the buildx component to build images with BuildKit:
             https://docs.docker.com/go/buildx/`
 
-	buildkitDisabledWarning = `INFORMATION: This version of Docker has been patched by SUSE.
-        These patches allow for automatic access to the host SUSE subscription
-        inside containers, allowing for customers to create derived images with
-        "docker build" using SUSE packages. However, this feature is
-        incompatible with BuildKit and so "docker build" will use the legacy
-        builder by default. In order to disable this message and continue using
-        the legacy builder, set the DOCKER_BUILDKIT=0 environment-variable.
-
-        In order to opt-in to using BuildKit, set the DOCKER_BUILDKIT=1
-        environment-variable. See the SUSE Linux Enterprise Server 15
-        documentation for information on how to switch to BuildKit while still
-        maintaining access to SCC credentials. In order to use BuildKit, you
-        must have the docker-buildx package installed.`
+	buildkitDisabledWarning = `DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            BuildKit is currently disabled; enable it by removing the DOCKER_BUILDKIT=0
+            environment-variable.`
 
 	buildxMissingError = `ERROR: BuildKit is enabled but the buildx component is missing or broken.
-       Install the docker-buildx package to build images with BuildKit:
+       Install the buildx component to build images with BuildKit:
        https://docs.docker.com/go/buildx/`
 
 	bakeMissingError = `ERROR: docker bake requires the buildx component but it is missing or broken.
-       Install the docker-buildx package to use bake:
+       Install the buildx component to use bake:
        https://docs.docker.com/go/buildx/`
 )
 
@@ -58,7 +48,7 @@ func newBuilderError(errorMsg string, pluginLoadErr error) error {
 
 //nolint:gocyclo
 func processBuilder(dockerCli command.Cli, cmd *cobra.Command, args, osargs []string) ([]string, []string, []string, error) {
-	var buildKitDisabled, showDisabledWarning, useBuilder, useAlias bool
+	var buildKitDisabled, useBuilder, useAlias bool
 	var envs []string
 
 	// check DOCKER_BUILDKIT env var is not empty
@@ -73,14 +63,6 @@ func processBuilder(dockerCli command.Cli, cmd *cobra.Command, args, osargs []st
 		} else {
 			useBuilder = true
 		}
-	} else {
-		// SUSE: Disable automatic usage of docker-buildx if unspecified (for
-		// pre-SLE16) to maintain support for SUSEConnect auto-injection. If a
-		// user specifies DOCKER_BUILDKIT=1 manually, that's up to them.
-		buildKitDisabled = true
-		// Only show the disabled "warning" when the user hasn't explicitly
-		// opted into DOCKER_BUILDKIT=0.
-		showDisabledWarning = true
 	}
 	// docker bake always requires buildkit; ignore "DOCKER_BUILDKIT=0".
 	if buildKitDisabled && len(args) > 0 && args[0] == "bake" {
@@ -120,7 +102,7 @@ func processBuilder(dockerCli command.Cli, cmd *cobra.Command, args, osargs []st
 		// is deprecated. For Windows / WCOW, BuildKit is still experimental,
 		// so we don't print this warning, even if the daemon advertised that
 		// it supports BuildKit.
-		if showDisabledWarning && dockerCli.ServerInfo().OSType != "windows" {
+		if dockerCli.ServerInfo().OSType != "windows" {
 			_, _ = fmt.Fprintf(dockerCli.Err(), "%s\n\n", buildkitDisabledWarning)
 		}
 		return args, osargs, nil, nil
